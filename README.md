@@ -11,4 +11,4 @@ More information on the distribution code can be found at the "Finance Problem S
 The code that I wrote consisted of implementing the majority of the functions in the main app.py file (only excluding the login() and after_request() functions)
 and the majority of the html files (only excluding layout, login, and apology).
 
-## [Click Here To Demo!](https://stock-trader-cs50.herokuapp.com)
+## [Click Here to Demo the App!](https://stock-trader-cs50.herokuapp.com)
