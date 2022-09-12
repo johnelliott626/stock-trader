@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Transaction Number</th>
+                <th scope="col">Transacted</th>
+                <th scope="col">Type</th>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Price</th>
+                <th scope="col">Shares</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in history %}
+            <tr>
+                <td>{{ transaction.transactionID }}</td>
+                <td>{{ transaction.Date }}</td>
+                <td>{{ transaction.transactionType }}</td>
+                <td>{{ transaction.stockSymbol }}</td>
+                <td>{{ transaction.stockPrice | usd }}</td>
+                <td>{{ transaction.numShares }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
