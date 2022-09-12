@@ -45,7 +45,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # Assign variable to dict with portfolio data
+    # Assign variable to dict with portfolio data.
     currentUser = session["user_id"]
     userPortfolioTableID = ("user_" + (str(currentUser)) + "_portfolio")
     cash = db.execute("SELECT cash FROM users WHERE id = ?", currentUser)
