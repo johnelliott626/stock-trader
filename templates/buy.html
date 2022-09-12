@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block main %}
-    <h4>Enter the stock symbol and number of shares you would like to purchase:</h4>
     <form action="/buy" method="post">
+        <h4>Enter the stock symbol that you would like to purchase:</h4>
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol" type="text">
         </div>
+        <h4>Enter the number of shares you would like to purchase:</h4>
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="text">
         </div>
