@@ -24,7 +24,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
+uri = os.getenv("DATABASE_URL")
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://")
+db = SQL(uri)
 
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
@@ -124,7 +127,7 @@ def buy():
 
         except:
             db.execute("CREATE TABLE ? (transactionID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Date DATETIME NOT NULL, transactionType TEXT NOT NULL, stockSymbol TEXT NOT NULL, stockPrice NUMERIC NOT NULL, numShares NUMERIC NOT NULL, transactionAmount NUMERIC NOT NULL)", userTransactionsTableID)
-            db.execute("CREATE TABLE ? (stockSymbol TEXT PRIMARY KEY NOT NULL, stockName TEXT UNIQUE, sharesOfStock NUMERIC NOT NULL)", userPortfolioTableID)
+            db.execute("CREATE TABLE ? (stockSymbol TEXT NOT NULL, stockName TEXT UNIQUE, sharesOfStock NUMERIC NOT NULL)", userPortfolioTableID)
 
         #then execute transaction, updating transaction logs by inserting data, and update the users cash amount to reflect the transaction
         db.execute("INSERT INTO ? (Date, transactionType, stockSymbol, stockPrice, numShares, transactionAmount) VALUES (?, 'buy', ?, ?, ?, ?)", userTransactionsTableID, datetime.datetime.now(), symbol, price, shares, requestedBuyAmount)
