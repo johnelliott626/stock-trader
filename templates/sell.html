@@ -6,6 +6,7 @@
 
 {% block main %}
     <form action="/sell" method="post">
+        <h4>Select which stock in your portfolio you would like to sell:</h4>
         <div class="mb-3">
             <select class="form-select mx-auto w-auto" name="symbol">
                 <option disabled="" selected="">Symbol</option>
@@ -14,6 +15,7 @@
                 {% endfor %}
             </select>
         </div>
+        <h4>Enter the number of shares you would like to sell:</h4>
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="text">
         </div>
