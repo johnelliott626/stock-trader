@@ -10,5 +10,3 @@ As this project was created as part of participation in a course, some distribut
 More information on the distribution code can be found at the "Finance Problem Set" hyperlink or directly downloaded [here](https://cdn.cs50.net/2021/fall/psets/9/finance.zip) for reference.
 The code that I wrote consisted of implementing the majority of the functions in the main app.py file (only excluding the login() and after_request() functions)
 and the majority of the html files (only excluding layout, login, and apology).
-
-## Click Here to Demo the App! (Note: coming soon as heroku no longer offers free plans for web-app hosting where it was previously hosted)
